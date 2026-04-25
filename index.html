@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taski — Minimalist To-Do</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="noise"></div>
+
+  <main class="app">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-top">
+        <h1 class="app-title">TODO APP</h1>
+      </div>
+      <p class="app-subtitle" id="taskCount">0 tasks today</p>
+    </header>
+
+    <!-- Input Section -->
+    <section class="input-section">
+      <div class="input-row">
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="What needs to be done?"
+          maxlength="120"
+          autocomplete="off"
+        />
+        <!-- Custom Priority Selector -->
+        <div class="custom-select" id="prioritySelect" role="listbox" aria-label="Priority" tabindex="0">
+          <div class="cs-trigger">
+            <span class="cs-dot" data-priority="medium"></span>
+            <span class="cs-label">Medium</span>
+            <svg class="cs-arrow" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <ul class="cs-dropdown" role="listbox">
+            <li class="cs-option" data-value="high" role="option">
+              <span class="cs-dot" data-priority="high"></span>
+              <span>High</span>
+              <span class="cs-check">✓</span>
+            </li>
+            <li class="cs-option cs-selected" data-value="medium" role="option" aria-selected="true">
+              <span class="cs-dot" data-priority="medium"></span>
+              <span>Medium</span>
+              <span class="cs-check">✓</span>
+            </li>
+            <li class="cs-option" data-value="low" role="option">
+              <span class="cs-dot" data-priority="low"></span>
+              <span>Low</span>
+              <span class="cs-check">✓</span>
+            </li>
+          </ul>
+        </div>
+        <button id="addBtn" class="add-btn" aria-label="Add task">
+          <span class="btn-icon">+</span>
+          <span class="btn-text">Add</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+      <div class="filter-group" role="group" aria-label="Filter tasks">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <button id="clearCompletedBtn" class="clear-btn" title="Clear completed tasks">
+        Clear done
+      </button>
+    </section>
+
+    <!-- Task List -->
+    <section class="task-section" aria-label="Task list">
+      <ul class="task-list" id="taskList">
+        <!-- tasks rendered here -->
+      </ul>
+      <div class="empty-state" id="emptyState">
+        <span class="empty-icon">◎</span>
+        <p>No tasks here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
