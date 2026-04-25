@@ -1,4 +1,4 @@
-# Taski — Minimalist To-Do App
+# To-Do App
 
 A clean, dark-themed to-do list app with priority levels, filters, and localStorage persistence.
 
@@ -40,7 +40,6 @@ todo-app/
 ## Bonus Features
 
 - Shake animation on empty submit attempt
-- Spinning logo mark ✦
 - Smooth slide-in / slide-out task animations
 - Tasks sorted: pending first, then completed
 - XSS protection via DOM text node sanitization
